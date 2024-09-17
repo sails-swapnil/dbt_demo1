@@ -7,7 +7,7 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='table', alias='first_model') }} 
+{{ config(materialized='table', alias='first_model', schema='swapnil_test') }} 
 
 
 
