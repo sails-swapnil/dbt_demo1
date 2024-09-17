@@ -12,7 +12,7 @@
         materialized = 'table', 
         alias = 'first_model', 
         schema = 'swapnil_test',
-        database = 'analytics_test'
+        database = 'test-project-2-435911'
     ) 
 }}
 
