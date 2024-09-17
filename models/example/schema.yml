@@ -26,3 +26,4 @@ models:
             description: "namess"
             tests:
                 - not_null
+    - name: dates
