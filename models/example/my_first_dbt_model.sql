@@ -7,7 +7,9 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='ephemeral') }}
+-- {{ config(materialized='ephemeral') }}
+
+
 
 with source_data as (
 
