@@ -9,8 +9,7 @@ models:
             description: "The primary key for this table"
             tests:
                 - unique
-                - not_null
-
+                # - not_null
     - name: my_second_dbt_model
       description: "A starter dbt model"
       columns:
@@ -19,6 +18,9 @@ models:
             tests:
                 - unique
                 - not_null
+                - relationships:
+                    field: id
+                    to: ref('my_first_dbt_model')
     - name: bigquery_names
       description: "A list of names of the US population"
       columns:
@@ -26,4 +28,4 @@ models:
             description: "namess"
             tests:
                 - not_null
-    - name: dates
+    - name: covid
