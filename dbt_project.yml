@@ -25,6 +25,8 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
+
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -41,8 +43,26 @@ models:
     materialized: view
     example:
       +materialized: table
+      my_first_dbt_model:
+        pre-hook:
+          - "SELECT 'Pre-hook executed' AS status;"
+        post-hook:
+          - "SELECT 'Post-hook executed' AS status;"
 
 vars:
   my_first_variable: True
   my_second_variable: 2020
   my_third_variable: 2
+
+
+
+on-run-start:
+  - "{{ log('Starting dbt run...', info=True) }}"
+  - "SELECT 'On-run-start executed' AS status;"
+
+on-run-end:
+  - "SELECT 'On-run-end executed' AS status;"
+  - "{{ log('Finished dbt run', info=True) }}"
+
+
+  
