@@ -2,9 +2,12 @@
 {{ config(materialized = 'incremental')}}
 
 SELECT
-  *
+    {{rename_segments('state')}} state_adjusted,
+    confirmed,
+    recovered,
+    deaths
 FROM
-  `covid-assistant.covid.india_covid`
+  {{ source('sample_covid', 'india_covid') }}
 WHERE
   last_updated <= current_date
 

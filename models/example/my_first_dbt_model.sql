@@ -18,13 +18,11 @@
 
 
 with source_data as (
-
-    select 1 as id
+    select 1 as id, 'NY' as state, CAST('2024-01-01 00:00:00.000' AS timestamp) as updated_at 
     union all
-    select null as id
+    select null as id, 'CT' as state, CAST('2024-01-01 00:00:00.000' AS timestamp) as updated_at 
     union all
-    select 3 as id
-
+    select 3 as id, 'VT' as state, CAST('2024-01-01 00:00:00.000' AS timestamp) as updated_at 
 )
 
 select *

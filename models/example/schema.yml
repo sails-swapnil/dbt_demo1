@@ -28,4 +28,21 @@ models:
             description: "namess"
             tests:
                 - not_null
-    - name: covid
+    - name: covid_dates
+    - name: covid_public_database.sql
+
+
+
+
+sources:
+  - name : sample
+    database: bigquery-public-data
+    schema: covid19_public_forecasts
+    tables:
+      - name: county_14d
+      - name: county_28d
+  - name : sample_covid
+    database: covid-assistant
+    schema: covid
+    tables:
+      - name: india_covid
